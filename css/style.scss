@@ -1,0 +1,109 @@
+$objectColor: #ff9f29;
+$lineColor: #faf3e3;
+$backgroundColor: black;
+$clickedColor: #1a4d2e;
+
+@mixin upBig() {
+  position: absolute;
+  background-color: $objectColor;
+  width: 30px;
+  height: 80px;
+  left: calc(50% - 15px);
+  transform: translateY(-40px);
+  top: 50%;
+  visibility: hidden;
+}
+
+@mixin downBig() {
+  position: absolute;
+  background-color: $objectColor;
+  width: 80px;
+  height: 30px;
+  left: calc(50% - 40px);
+  transform: translateY(-15px);
+  top: 50%;
+  visibility: hidden;
+}
+
+body {
+  margin: 80px;
+  background-color: $backgroundColor;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tableConainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 800px;
+
+  .cell {
+    width: 150px;
+    aspect-ratio: 1;
+    border: 1px solid $lineColor;
+    position: relative;
+
+    .right1 {
+      @include upBig();
+    }
+
+    .right2 {
+      position: absolute;
+      background-color: $objectColor;
+      height: 30px;
+      width: 40px;
+      left: 50%;
+      top: calc(50% - 15px);
+      visibility: hidden;
+    }
+
+    .left1 {
+      @include upBig();
+    }
+
+    .left2 {
+      position: absolute;
+      background-color: $objectColor;
+      height: 30px;
+      width: 40px;
+      left: 50%;
+      transform: translateX(-100%);
+      top: calc(50% - 15px);
+      visibility: hidden;
+    }
+
+    .up1 {
+      @include downBig();
+    }
+
+    .up2 {
+      position: absolute;
+      background-color: $objectColor;
+      height: 40px;
+      width: 30px;
+      left: calc(50% - 15px);
+      top: 50%;
+      transform: translateY(-100%);
+      visibility: hidden;
+    }
+
+    .down1 {
+      @include downBig();
+    }
+
+    .down2 {
+      position: absolute;
+      background-color: $objectColor;
+      height: 40px;
+      width: 30px;
+      left: calc(50% - 15px);
+      top: 50%;
+      visibility: hidden;
+    }
+  }
+}
+
+.clicked {
+  background-color: $clickedColor !important;
+}
